@@ -1,5 +1,7 @@
 package Sort;
 
+import java.util.List;
+
 public class Sort {
 
     public static void BubbleSort(int [] x){BubbleSort.sort(x);}
@@ -14,6 +16,10 @@ public class Sort {
         return x;
     }
     public static Float [] BubbleSort(Float[] x) {
+        x = BubbleSort.sort(x);
+        return x;
+    }
+    public static <T> List<T> BubbleSort(List<T> x){
         x = BubbleSort.sort(x);
         return x;
     }

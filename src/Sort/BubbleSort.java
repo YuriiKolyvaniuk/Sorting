@@ -1,24 +1,15 @@
 package Sort;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import javax.swing.*;
+import java.util.*;
 
 public class BubbleSort{
-    private static Integer [] removeNull(Integer [] arr,int index){
-        List<Integer> tempList = new ArrayList<Integer>(Arrays.asList(arr));
+
+    private static < T > List<T> removeNull(T[] arr, int index){
+        List<T> tempList = new ArrayList<T>(Arrays.asList(arr));
         tempList.remove(index);
-        return tempList.toArray(new Integer[0]);
-    }
-    private static Double [] removeNull(Double [] arr,int index){
-        List<Double> tempList = new ArrayList<Double>(Arrays.asList(arr));
-        tempList.remove(index);
-        return tempList.toArray(new Double[0]);
-    }
-    private static Float [] removeNull(Float [] arr,int index){
-        List<Float> tempList = new ArrayList<Float>(Arrays.asList(arr));
-        tempList.remove(index);
-        return tempList.toArray(new Float[0]);
+
+        return tempList;
     }
 
     public static void sort(int [] arr){
@@ -57,6 +48,32 @@ public class BubbleSort{
             }
         }
     }
+
+    public static <T> List<T>  sort(List<T> list){
+
+        if(list.get(0) == null && list.size() == 1){
+            return null;
+        }else{
+            while(list.remove(null)){
+
+            }
+
+            int len = list.size();
+            for(int i = 0; i < len-1;++i){
+                for(int j = 0; j < len - i -1; ++j){
+                    if( list.get(j).hashCode() > list.get(j+1).hashCode()){
+                        T temp = list.get(j);
+                        list.set(j,list.get(j+1));
+                        list.set(j+1,temp);
+                    }
+                }
+            }
+            return list;
+        }
+
+
+    }
+
     public static Integer [] sort(Integer [] arr){
         if(arr[0] == null && arr.length == 1) {
             return null;
@@ -64,7 +81,9 @@ public class BubbleSort{
         }else{
             for(int i = 0; i < arr.length;i++){
                 if(arr[i] == null){
-                    arr = removeNull(arr,i);
+                    List<Integer> tempList;
+                    tempList = removeNull(arr,i);
+                    arr = tempList.toArray(new Integer[0]);
                 }
             }
             int len = arr.length;
@@ -87,7 +106,9 @@ public class BubbleSort{
         }else{
             for(int i = 0; i < arr.length;i++){
                 if(arr[i] == null){
-                    arr = removeNull(arr,i);
+                    List<Double> tempList;
+                    tempList = removeNull(arr,i);
+                    arr = tempList.toArray(new Double[0]);
                 }
             }
             int len = arr.length;
@@ -110,7 +131,9 @@ public class BubbleSort{
         }else{
             for(int i = 0; i < arr.length;i++){
                 if(arr[i] == null){
-                    arr = removeNull(arr,i);
+                    List<Float> tempList;
+                    tempList = removeNull(arr,i);
+                    arr = tempList.toArray(new Float[0]);
                 }
             }
             int len = arr.length;
@@ -126,6 +149,5 @@ public class BubbleSort{
             return arr;
         }
     }
-
 
 }
