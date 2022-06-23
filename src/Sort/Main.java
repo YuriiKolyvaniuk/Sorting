@@ -8,7 +8,8 @@ public class Main {
 
         Integer [] arr = {null,19,0,8,7,3124,4,57};
 
-        List<Integer> intgrs = new LinkedList<>(Arrays.asList(54,2,41,3,null,7,-1));
+        List<Integer> intgrs = new ArrayList<Integer>();
+
         List<Double> dbls = new LinkedList<>(Arrays.asList(4d,17d,3d,4.3,16.4,3.1,null,-1d,-1.1,4.001));
         List<Float> flts = new LinkedList<>(Arrays.asList(4f,-17f,3f,4.3f,16.4f,3.1f,null,-1f,-1.1f,4.001f));
 /*

@@ -50,7 +50,7 @@ public class BubbleSort{
     }
 
     public static <T> List<T>  sort(List<T> list){
-
+        int a = list.size();
         if(list.get(0) == null && list.size() == 1){
             return null;
         }else{
@@ -61,10 +61,12 @@ public class BubbleSort{
             int len = list.size();
             for(int i = 0; i < len-1;++i){
                 for(int j = 0; j < len - i -1; ++j){
-                    if( list.get(j).hashCode() > list.get(j+1).hashCode()){
-                        T temp = list.get(j);
-                        list.set(j,list.get(j+1));
-                        list.set(j+1,temp);
+                    if( list.get(j).hashCode() > list.get(j+1).hashCode() ){
+                        if(list.get(j).hashCode() > 0) {
+                            T temp = list.get(j);
+                            list.set(j, list.get(j + 1));
+                            list.set(j + 1, temp);
+                        }
                     }
                 }
             }
