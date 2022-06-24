@@ -1,6 +1,5 @@
 package Sort;
 
-import javax.swing.*;
 import java.util.*;
 
 public class BubbleSort{
@@ -10,7 +9,7 @@ public class BubbleSort{
         tempList.remove(index);
 
         return tempList;
-    }
+    } //method .remove for array
 
     public static void sort(int [] arr){
         int len = arr.length;
@@ -23,7 +22,7 @@ public class BubbleSort{
                     }
             }
         }
-    }
+    } // Sorting algorithm for int type array
     public static void sort(double [] arr){
         int len = arr.length;
         for(int i = 0; i < len-1;++i){
@@ -35,7 +34,7 @@ public class BubbleSort{
                 }
             }
         }
-    }
+    } // Sorting algorithm for double type array
     public static void sort(float [] arr){
         int len = arr.length;
         for(int i = 0; i < len-1;++i){
@@ -47,11 +46,14 @@ public class BubbleSort{
                 }
             }
         }
-    }
-
-    public static <T> List<T>  sort(List<T> list){
+    } // Sorting algorithm for float type array
+    public static <E extends Comparable<E>> List<E> sort(List<E> list){
         int a = list.size();
-        if(list.get(0) == null && list.size() == 1){
+
+        if(list.size() == 0){
+           return list;
+        }
+        else if(list.get(0) == null && list.size() == 1){
             return null;
         }else{
             while(list.remove(null)){
@@ -59,14 +61,12 @@ public class BubbleSort{
             }
 
             int len = list.size();
-            for(int i = 0; i < len-1;++i){
+            for(int i = 0; i < len-1;++i){                           //BubbleSort Algorithm
                 for(int j = 0; j < len - i -1; ++j){
-                    if( list.get(j).hashCode() > list.get(j+1).hashCode() ){
-                        if(list.get(j).hashCode() > 0) {
-                            T temp = list.get(j);
-                            list.set(j, list.get(j + 1));
-                            list.set(j + 1, temp);
-                        }
+                    if( list.get(j).compareTo(list.get(j+1))>0 ){
+                        E temp = list.get(j);
+                        list.set(j, list.get(j + 1));
+                        list.set(j + 1, temp);
                     }
                 }
             }
@@ -74,8 +74,7 @@ public class BubbleSort{
         }
 
 
-    }
-
+    } // Sorting algorithm for any Numbers List
     public static Integer [] sort(Integer [] arr){
         if(arr[0] == null && arr.length == 1) {
             return null;
@@ -100,7 +99,7 @@ public class BubbleSort{
             }
             return arr;
         }
-    }
+    } // Sorting algorithm for Integer type array
     public static Double [] sort(Double [] arr){
         if(arr[0] == null && arr.length == 1) {
             return null;
@@ -125,7 +124,7 @@ public class BubbleSort{
             }
             return arr;
         }
-    }
+    } // Sorting algorithm for Double type array
     public static Float [] sort(Float [] arr){
         if(arr[0] == null && arr.length == 1) {
             return null;
@@ -150,6 +149,5 @@ public class BubbleSort{
             }
             return arr;
         }
-    }
-
+    } // Sorting algorithm for Float type array
 }
