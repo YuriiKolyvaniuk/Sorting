@@ -4,13 +4,14 @@ import java.util.*;
 
 public class BubbleSort{
 
-    private static < T > List<T> removeNull(T[] arr, int index){
-        List<T> tempList = new ArrayList<T>(Arrays.asList(arr));
+    private static <E> List<E> removeNull(E[] arr, int index){
+        List<E> tempList = new ArrayList<E>(Arrays.asList(arr));
         tempList.remove(index);
 
         return tempList;
     } //method .remove for array
 
+    ////////////////// Sorting for any primitive type  //////////////////
     public static void sort(int [] arr){
         int len = arr.length;
         for(int i = 0; i < len-1;++i){
@@ -22,7 +23,7 @@ public class BubbleSort{
                     }
             }
         }
-    } // Sorting algorithm for int type array
+    }
     public static void sort(double [] arr){
         int len = arr.length;
         for(int i = 0; i < len-1;++i){
@@ -34,7 +35,7 @@ public class BubbleSort{
                 }
             }
         }
-    } // Sorting algorithm for double type array
+    }
     public static void sort(float [] arr){
         int len = arr.length;
         for(int i = 0; i < len-1;++i){
@@ -46,10 +47,9 @@ public class BubbleSort{
                 }
             }
         }
-    } // Sorting algorithm for float type array
-    public static <E extends Comparable<E>> List<E> sort(List<E> list){
-        int a = list.size();
+    }
 
+    public static <E extends Comparable<E>> List<E> sort(List<E> list){
         if(list.size() == 0){
            return list;
         }
@@ -75,6 +75,8 @@ public class BubbleSort{
 
 
     } // Sorting algorithm for any Numbers List
+
+    ////////////////// Sorting for any reference type  //////////////////
     public static Integer [] sort(Integer [] arr){
         if(arr[0] == null && arr.length == 1) {
             return null;
@@ -99,7 +101,7 @@ public class BubbleSort{
             }
             return arr;
         }
-    } // Sorting algorithm for Integer type array
+    }
     public static Double [] sort(Double [] arr){
         if(arr[0] == null && arr.length == 1) {
             return null;
@@ -124,7 +126,7 @@ public class BubbleSort{
             }
             return arr;
         }
-    } // Sorting algorithm for Double type array
+    }
     public static Float [] sort(Float [] arr){
         if(arr[0] == null && arr.length == 1) {
             return null;
@@ -149,5 +151,5 @@ public class BubbleSort{
             }
             return arr;
         }
-    } // Sorting algorithm for Float type array
+    }
 }
